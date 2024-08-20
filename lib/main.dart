@@ -1,8 +1,6 @@
 import 'package:blog/core/secrets/app_secrets.dart';
 import 'package:blog/core/theme/theme.dart';
-import 'package:blog/features/auth/data/datasources/auth_remote_data_source.dart';
-import 'package:blog/features/auth/data/datasources/repositories/auth_repository_impl.dart';
-import 'package:blog/features/auth/domain/usecases/user_sign_up.dart';
+
 import 'package:blog/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:blog/features/auth/presentation/pages/login_page.dart';
 import 'package:blog/inti_dependencies.dart';

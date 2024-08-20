@@ -9,17 +9,20 @@ class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl(this.remoteDataSource);
 
   @override
-  Future<Either<Failure, String>> loginWithEmailPassword(
-      {required String email, required String password}) {
+  Future<Either<Failure, String>> loginWithEmailPassword({
+    required String email,
+    required String password,
+  }) {
     // TODO: implement loginWithEmailPassword
     throw UnimplementedError();
   }
 
   @override
-  Future<Either<Failure, String>> signUpWithEmailPassword(
-      {required String name,
-      required String email,
-      required String password}) async {
+  Future<Either<Failure, String>> signUpWithEmailPassword({
+    required String name,
+    required String email,
+    required String password,
+  }) async {
     try {
       final userId = await remoteDataSource.signUpWithEmailPassword(
         name: name,
