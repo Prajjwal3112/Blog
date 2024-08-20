@@ -1,4 +1,4 @@
-import 'package:blog/core/error/expecptions.dart';
+import 'package:blog/core/error/exceptions.dart'; // Corrected the typo
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 abstract interface class AuthRemoteDataSource {
@@ -24,7 +24,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     required String email,
     required String password,
   }) {
-    // TODO: implement loginWithEmailPassword
+    // TODO: Implement loginWithEmailPassword
     throw UnimplementedError();
   }
 
@@ -38,16 +38,16 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       final response = await supabaseClient.auth.signUp(
         password: password,
         email: email,
-        data: {
-          'name': name,
-        },
+        data: {'name': name},
       );
+
       if (response.user == null) {
-        throw ServerException('User is null');
+        throw ServerException('User creation failed: User is null');
       }
+
       return response.user!.id;
     } catch (e) {
-      throw ServerException(e.toString());
+      throw ServerException('Failed to sign up user: ${e.toString()}');
     }
   }
 }
